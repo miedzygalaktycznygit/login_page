@@ -1,0 +1,90 @@
+$Dark_Slate_Grey: hsl(234, 29%, 20%);
+$Charcoal_Grey: hsl(235, 18%, 26%);
+$Grey: hsl(231, 7%, 60%);
+$White: hsl(0, 0%, 100%);
+
+@mixin fFlexbox($height, $width, $direction){
+    flex-direction: $direction;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    width: $width;
+    height: $height;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  * {
+    margin: 0;
+  }
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    height: fit-content;
+    font-family: 'my_font', sans-serif;
+  }
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  input, button, textarea, select {
+    font: inherit;
+  }
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+  #container{
+    @include fFlexbox(100vh, 100vw, column);
+    background-color: $Dark_Slate_Grey;
+    align-items: center;
+    min-height: fit-content;
+    min-width: fit-content;
+
+    main{
+        @include fFlexbox(35rem, 55rem, row);
+        background-color: $White;
+        border-radius: 1rem;
+
+        article{
+            @include fFlexbox(100%, 56%, column);
+            
+            row-gap: 2rem;
+            padding-inline: 4rem;
+            text-align: left;
+            h1{
+                color: $Dark_Slate_Grey;
+                font-size: 3rem;
+            }
+            p{
+                color: $Charcoal_Grey;
+                font-size: 1.2rem;
+            }
+            ul{
+                list-style: none;
+                padding: 0;
+
+                li {
+                    position: relative;
+                    padding-left: 2rem;
+                    text-align: left;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 1rem;
+                        height: 1rem; 
+                        background-image: url('/assets/images/icon-list.svg'); /* Ścieżka do obrazu */
+                        background-size: cover;
+                    }
+                }
+            }
+        }
+        img{
+            padding: 1rem;
+        }
+    }
+  }
