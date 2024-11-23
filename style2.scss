@@ -1,0 +1,140 @@
+$Dark_Slate_Grey: hsl(234, 29%, 20%);
+$Charcoal_Grey: hsl(235, 18%, 26%);
+$Grey: hsl(231, 7%, 60%);
+$White: hsl(0, 0%, 100%);
+
+@mixin fFlexbox($height, $width, $direction){
+    flex-direction: $direction;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    width: $width;
+    height: $height;
+}
+
+@font-face {
+  font-family: 'my_font';
+  src: url(/assets/fonts/Roboto-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'my_font2';
+  src: url(/assets/fonts/Roboto-Regular.ttf);
+}
+
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+  * {
+    margin: 0;
+}
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    height: fit-content;
+    font-family: 'my_font2', sans-serif;
+    background-color: $Dark_Slate_Grey;
+}
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+  input, button, textarea, select {
+    font: inherit;
+}
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+  #container{
+    @include fFlexbox(100vh, 100vw, column);
+    background-color: $Dark_Slate_Grey;
+    align-items: center;
+    min-height: fit-content;
+    min-width: fit-content;
+
+    main{
+        @include fFlexbox(35rem, 35rem, column);
+        background-color: $White;
+        border-radius: 2rem;
+        padding-inline: 4rem;
+        row-gap: 2rem;
+        text-align: left;
+        ul{
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2.5rem;
+            li {
+                position: relative;
+                text-align: left;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 4.5rem;
+                    height: 4.5rem; 
+                    background-image: url('/assets/images/icon-list.svg');
+                    background-size: cover;
+                }
+            }
+        }
+        h1{
+            font-family: 'my_font', sans-serif;
+            color: $Dark_Slate_Grey;
+            font-size: 3.5rem;
+            line-height: 4rem;
+        }
+        p{
+            color: $Charcoal_Grey;
+            font-size: 1.2rem;
+            line-height: 2rem;
+        }
+        button{
+            background-color: $Dark_Slate_Grey;
+            color: $White;
+            width: 100%;
+            height: 3rem;
+            border: 0rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+        button:hover{
+            background: linear-gradient(90deg, hsl(356, 100%, 68%), hsl(25, 98%, 63%));
+            color: $White;
+            width: 100%;
+            height: 3rem;
+            border: 0rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px 0 rgba(255, 105, 97, 0.3), 0 6px 20px 0 rgba(255, 179, 71, 0.3);
+            cursor: pointer;
+        }
+    }
+}
+
+@media (max-width: 48rem) {
+  #container {
+      main {
+          height: 50rem;
+          width: 25rem;
+          row-gap: 3rem;
+          h1 {
+              font-size: 3rem; 
+          }
+          p {
+              font-size: 1rem; 
+          }
+          ul li {
+              font-size: 0.7rem; 
+          }
+          button {
+              font-size: 0.9rem; 
+          }
+          form{
+              padding-top: 10rem;
+          }
+      }
+  }
+}

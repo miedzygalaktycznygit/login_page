@@ -6,6 +6,7 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="/style.css">
+  <link rel="scripts" href="/scripts.js">
   <title>Frontend Mentor | Newsletter sign-up form with success message</title>
 
 </head>
@@ -21,13 +22,16 @@
         <li>And much more!</li>
       </ul>
       <p class="small_text">Email address</p>
-      <form action="/success.html">
-        <input type="email" id="email" name="email" placeholder="email@company.com">
+      <p id="message">Valid email required</p>
+      <form id="form" action="/nextPage.html">
+        <input type="text" id="email" name="email" placeholder="email@company.com">
         <button type="submit">Subscribe to monthly newsletter</button>
       </form>
     </article>
+    <img id="img2" src="/assets/images/illustration-sign-up-mobile.svg" alt="Main Photo">
     <img src="/assets/images/illustration-sign-up-desktop.svg" alt="Main Photo">
   </main>
 </div>
+<script src="/scripts.js" defer></script>
 </body>
 </html>
